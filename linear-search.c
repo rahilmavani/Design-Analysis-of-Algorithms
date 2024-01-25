@@ -9,7 +9,7 @@ int linearSearch(int array[], int size, int key)
             return i;
         }
     }
-    
+
     return -1;
 }
 
@@ -32,14 +32,14 @@ int main()
 
     int index = linearSearch(array, size, key);
 
-    if (index >= 0){
+    if (index >= 0)
+    {
         printf("%d found at index %d\n", key, index);
     }
-    else{
+    else
+    {
         printf("Element not found");
     }
 
     return 0;
-
-
 }
