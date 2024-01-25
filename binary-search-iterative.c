@@ -20,8 +20,8 @@ int binary_search(int array[], int size, int key)
             start = mid + 1;
         }
 
-        return -1;
     }
+    return -1;
 }
 
 int main()
