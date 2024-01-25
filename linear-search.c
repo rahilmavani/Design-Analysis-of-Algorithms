@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int linearSearch(int array[], int size, int key)
+int linear_search(int array[], int size, int key)
 {
     for (int i = 0; i < size; i++)
     {
@@ -30,7 +30,7 @@ int main()
     printf("Enter the element to be searched: ");
     scanf("%d", &key);
 
-    int index = linearSearch(array, size, key);
+    int index = linear_search(array, size, key);
 
     if (index >= 0)
     {
