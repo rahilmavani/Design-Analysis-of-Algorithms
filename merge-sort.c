@@ -1,59 +1,56 @@
 #include <stdio.h>
 
-int merge_sort(int x[], int y[], int n, int m) {
-    int i,j,k;
-    i = 0; j = 0; k = 0;
-    int len_z = n+m;
-    int z[n+m];
 
-    while(i < n && j < m) {
-        if(x[i] < y[j]) {
-            z[k] = x[i];
-            i++;
-            k++;
+void merge(int arr[], int lo, int mid, int hi) {
+    int i,j,k;
+    int out[200];
+    i = lo;
+    j = mid+1;
+    k = lo;
+
+    while(i <= mid && j <= hi) {
+        if(arr[i] < arr[j]) {
+            out[k] = arr[i];
+            i++; k++;
         }
         else {
-            z[k] = y[j];
-            j++;
-            k++;
+            out[k] = arr[j];
+            j++; k++;
         }
     }
-
-    while(i < n) {
-        z[k] = x[i];
-        i++;
-        k++;
+    while(i <= mid) {
+        out[k] = arr[i];
+        i++; k++;
+    } 
+    while(j <= hi) {
+        out[k] = arr[j];
+        j++; k++;   
     }
 
-    while(j < m) {
-        z[k] = y[j];
-        j++;
-        k++;
+    for (int x = 0; x <= hi; x++) {
+        arr[x] = out[x];
     }
-    for(int i = 0; i < len_z; i++) {
-        printf("%d ", z[i]);
-    }
-
 }
 
-int main() {
-    int n, m;
-
-    printf("Enter no. of elements in first array: ");
-    scanf("%d", &n);
-    int first[n];
-    for(int i = 0; i < n; i++) {
-        printf("Enter elements for first array: ");
-        scanf("%d", &first[i]);
+void merge_sort(int arr[], int lo, int hi) {
+    int mid;
+    if(lo < hi) {
+        mid = (lo + hi) / 2;
+        merge_sort(arr, lo, mid);
+        merge_sort(arr, mid+1, hi);
+        merge(arr, lo, mid, hi);
     }
+    
+}   
 
-    printf("Enter no. of elements in second array: ");
-    scanf("%d", &m);
-    int second[m];
-    for(int i = 0; i < m; i++) {
-        printf("Enter elements for second array: ");
-        scanf("%d", &second[i]);
+
+void main(){
+
+    int a[]={1,4,2,7,92,23,34,4};
+    merge_sort(a,0,7);
+    for (int i = 0; i < 8; i++)
+    {
+        printf("%d ",a[i]);
     }
-
-    merge_sort(first, second, n, m);
+    
 }
