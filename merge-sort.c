@@ -45,12 +45,21 @@ void merge_sort(int arr[], int lo, int hi) {
 
 
 void main(){
-
-    int a[]={1,4,2,7,92,23,34,4};
-    merge_sort(a,0,7);
-    for (int i = 0; i < 8; i++)
-    {
-        printf("%d ",a[i]);
-    }
     
+    int n;
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    int arr[n];
+    for(int i = 0; i < n; i++) {
+        printf("Enter the elements: ");
+        scanf("%d", &arr[i]);
+    }
+
+    printf("Sorted Array: ");
+    merge_sort(arr, 0, n);
+    for(int i = 0; i < n; i++) {
+        printf("%d ", arr[i]);
+    }
+    printf("\n");   
 }
