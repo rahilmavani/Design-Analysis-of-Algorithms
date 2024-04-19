@@ -1,24 +1,27 @@
 #include <stdio.h>
 
-int binary_search(int array[], int size, int key, int start, int end)
+int binary_search(int array[], int size, int key)
 {
-    if(start > end)
+    int start = 0, end = size - 1;
+    for (int mid = (start + end) / 2; start <= end; mid = (start + end) / 2)
     {
-        return -1;
-    }    
-    int mid = (start + end) / 2;
-    if(array[mid] == key)
-    {
-        return mid;
+        if (array[mid] == key)
+        {
+            return mid;
+        }
+
+        else if (array[mid] > key)
+        {
+            end = mid - 1;
+        }
+
+        else
+        {
+            start = mid + 1;
+        }
     }
-    else if(array[mid] > key)
-    {
-        binary_search(array, size, key, start, mid - 1);
-    }
-    else
-    {
-        binary_search(array, size, key, start, mid + 1);
-    }
+
+    return -1;
 }
 
 int main()
@@ -38,7 +41,7 @@ int main()
     printf("Enter element to be searched: ");
     scanf("%d", &key);
 
-    int index = binary_search(array, size, key, 0, size - 1);
+    int index = binary_search(array, size, key);
 
     if (index >= 0)
     {
@@ -48,4 +51,4 @@ int main()
     {
         printf("Element not found");
     }
-}
+}   
