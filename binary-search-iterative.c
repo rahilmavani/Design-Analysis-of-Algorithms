@@ -7,7 +7,7 @@ int binary_search(int array[], int size, int key)
     {
         if (array[mid] == key)
         {
-            return mid;
+            return mid; 
         }
 
         else if (array[mid] > key)
@@ -47,6 +47,7 @@ int main()
     {
         printf("%d found at index %d", key, index);
     }
+    
     else
     {
         printf("Element not found");
