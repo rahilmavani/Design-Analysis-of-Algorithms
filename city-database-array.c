@@ -96,7 +96,7 @@ int main() {
     char name_input[50];
     int x_input, y_input;
     int radius;
-    int scanf_result; // to store the result of scanf
+    int scanf_result;
 
     do {
         printf("\nMenu:\n");
