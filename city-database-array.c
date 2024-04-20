@@ -105,8 +105,9 @@ int main() {
         printf("3. Search for a city by coordinates\n");
         printf("4. Insert a new city\n");
         printf("5. Delete a city by name\n");
-        printf("6. Search within a radius\n");
-        printf("7. Exit\n");
+        printf("6. Delete a city by coordinates\n");
+        printf("7. Search within a radius\n");
+        printf("8. Exit\n");
         printf("Enter your choice: ");
         scanf_result = scanf("%d", &choice);
         getchar();
@@ -138,17 +139,22 @@ int main() {
                 delete_by_name(name_input);
                 break;
             case 6:
+                printf("Enter the coordinates (x,y) of the city to delete: ");
+                scanf("%d %d", &x_input, &y_input);
+                delete_by_coordinate(x_input, y_input);
+                break;
+            case 7:
                 printf("Enter the coordinates (x y) and radius of the search area: ");
                 scanf("%d %d %d", &x_input, &y_input, &radius);
                 search_within_radius(x_input, y_input, radius);
                 break;
-            case 7:
+            case 8:
                 printf("Exiting the program.\n");
                 break;
             default:
-                printf("Invalid choice. Please enter a number between 1 and 7.\n");
+                printf("Invalid choice. Please enter a number between 1 and 8.\n");
         }
-    } while(choice != 7);
+    } while(choice != 8);
 
     return 0;
 }
