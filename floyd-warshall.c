@@ -22,15 +22,15 @@ void printmatrix(int size, int array[size][size])
 
 void floydwarshall(int size, int array[size][size])
 {
-    for (int i = 0; i < size; i++)
+    for (int k = 0; k < size; k++)
     {
-        for (int j = 0; j < size; j++)
+        for (int i = 0; i < size; i++)
         {
-            for (int k = 0; k < size; k++)
+            for (int j = 0; j < size; j++)
             {
                 if (array[i][k] + array[k][j] < array[i][j])
                 {
-                    array[i][j] = array[i][k] + array[i][k];
+                    array[i][j] = array[i][k] + array[k][j];
                 }
             }
         }
@@ -71,4 +71,8 @@ int main()
             }
         }
     }
+
+    floydwarshall(n, matrix);
+
+    return 0;
 }
