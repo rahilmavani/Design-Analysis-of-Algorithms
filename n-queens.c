@@ -96,6 +96,7 @@ void n_queens(char board[n][n], int row)
     }
 }
 
+
 int main()
 {
     printf("Number of queens : ");
