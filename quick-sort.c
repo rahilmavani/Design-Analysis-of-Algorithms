@@ -8,13 +8,13 @@ void swap(int *a, int *b) {
 
 int partition(int arr[], int lo, int hi) {
     int pivot = arr[lo];
-    int i = lo;
+    int i = lo + 1;  
     int j = hi;
-    while (i < j) {
-        while (arr[i] <= pivot) {
+    while (i <= j) { 
+        while (i <= hi && arr[i] <= pivot) {
             i++;
         }
-        while (arr[j] >= pivot) {
+        while (j > lo && arr[j] >= pivot) {
             j--;
         }
         if (i < j) {
@@ -24,6 +24,7 @@ int partition(int arr[], int lo, int hi) {
     swap(&arr[lo], &arr[j]);
     return j;
 }
+
 
 
 void quick_sort(int arr[], int lo, int hi) {
